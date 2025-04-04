@@ -1,0 +1,26 @@
+{
+	"id": "gude-powercontrol",
+	"name": "gude-powercontrol",
+	"shortname": "powercontrol",
+	"description": "Gude PowerControl module for Companion",
+	"version": "0.0.1",
+	"license": "MIT",
+	"repository": "git+https://github.com/bitfocus/companion-module-gude-powercontrol.git",
+	"bugs": "https://github.com/bitfocus/companion-module-gude-powercontrol/issues",
+	"maintainers": [
+		{
+			"name": "Stijn Deblancq",
+			"email": "stijn.deblancq@gmail.com"
+		}
+	],
+	"runtime": {
+		"type": "node18",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../dist/main.js"
+	},
+	"legacyIds": [],
+	"manufacturer": "Televic",
+	"products": ["1141", "8112", "1020", "8041", "8031", "8021"],
+	"keywords": ["gude", "powercontrol"]
+}
