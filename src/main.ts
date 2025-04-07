@@ -1,5 +1,5 @@
-import TelevicApi from './gude-api/gude-api.js'
-import { InstanceBase, runEntrypoint, InstanceStatus, GudePowerControlField } from '@companion-module/base'
+import GudeApi from './gude-api/gude-api.js'
+import { InstanceBase, runEntrypoint, InstanceStatus, SomeCompanionConfigField } from '@companion-module/base'
 import { GetConfigFields, type GudePowerControlConfig } from './config.js'
 import { UpdateVariableDefinitions } from './variables.js'
 import { UpgradeScripts } from './upgrades.js'
@@ -52,7 +52,7 @@ export class GudePowerControlInstance extends InstanceBase<GudePowerControlConfi
 
 	async init(config: GudePowerControlConfig): Promise<void> {
 		this.config = config
-		this._api = new GudeApi(config.host, config.port, config.token)
+		this._api = new GudeApi(config.host, config.user, config.password)
 		this.updateStatus(InstanceStatus.Ok)
 
 		this.updateActions() // export actions
@@ -91,7 +91,7 @@ export class GudePowerControlInstance extends InstanceBase<GudePowerControlConfi
 	}
 
 	// Return config fields for web config
-	getConfigFields(): GudePowerControlConfigField[] {
+	getConfigFields(): SomeCompanionConfigField[] {
 		return GetConfigFields()
 	}
 
@@ -111,7 +111,7 @@ export class GudePowerControlInstance extends InstanceBase<GudePowerControlConfi
 		return await this._api?.GetPort(port) 
 	}
 
-	setSeatState(port: number, state: boolean) {
+	setPortState(port: number, state: boolean) {
 		this._api?.SetPort(port, state)
 	}
 }

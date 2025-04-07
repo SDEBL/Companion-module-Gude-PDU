@@ -4,8 +4,8 @@ import type { GudePowerControlInstance } from './main.js'
 
 export function UpdateFeedbacks(self: GudePowerControlInstance): void {
 	self.setFeedbackDefinitions({
-		micState: {
-			name: 'Microphone State',
+		portState: {
+			name: 'Port State',
 			type: 'boolean',
 			defaultStyle: {
 				bgcolor: combineRgb(255, 0, 0),
@@ -22,9 +22,10 @@ export function UpdateFeedbacks(self: GudePowerControlInstance): void {
 				},
 			],
 			callback: (feedback) => {
-				let status = self.getPortState(parseInt(feedback.options.port as string))?.then (data => {
+				console.log('check port status:', feedback.options.port)
+				let status = self.getPortState(feedback.options.port as number)?.then (data => {
 					console.log('port status:', feedback.options.port , " -  ", data)
-					return (data? data: false)
+					return (data as boolean)
 					})
 				return Promise.resolve(status) 
 			},

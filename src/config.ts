@@ -1,4 +1,4 @@
-import { Regex, type GudePowerControlConfigField } from '@companion-module/base'
+import { Regex, type SomeCompanionConfigField } from '@companion-module/base'
 
 export interface GudePowerControlConfig {
 	host: string
@@ -7,7 +7,7 @@ export interface GudePowerControlConfig {
 	password: string
 }
 
-export function GetConfigFields(): GudePowerControlConfigField[] {
+export function GetConfigFields(): SomeCompanionConfigField[] {
 	return [
 		{
 			type: 'textinput',

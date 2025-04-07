@@ -20,7 +20,7 @@
 		"entrypoint": "../dist/main.js"
 	},
 	"legacyIds": [],
-	"manufacturer": "Televic",
+	"manufacturer": "Gude-Systems",
 	"products": ["1141", "8112", "1020", "8041", "8031", "8021"],
 	"keywords": ["gude", "powercontrol"]
 }
